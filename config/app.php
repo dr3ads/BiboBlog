@@ -156,6 +156,11 @@ return [
         BiboBlog\Providers\EventServiceProvider::class,
         BiboBlog\Providers\RouteServiceProvider::class,
 
+        /*
+         * Vendor Providers
+         */
+        Teepluss\Theme\ThemeServiceProvider::class,
+
     ],
 
     /*
@@ -201,6 +206,11 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+
+        /*
+         * Vendor Aliases
+         */
+        'Theme' => Teepluss\Theme\Facades\Theme::class,
 
     ],
 

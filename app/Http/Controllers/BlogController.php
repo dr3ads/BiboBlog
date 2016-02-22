@@ -5,9 +5,9 @@ namespace BiboBlog\Http\Controllers;
 use Illuminate\Http\Request;
 
 use BiboBlog\Http\Requests;
-use BiboBlog\Http\Controllers\Controller;
+use BiboBlog\Http\Controllers\BaseController;
 
-class BlogController extends Controller
+class BlogController extends BaseController
 {
-    //
+
 }
