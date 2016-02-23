@@ -62,6 +62,13 @@ return array(
             // $theme->asset()->add('jquery', 'vendor/jquery/jquery.min.js');
             // $theme->asset()->add('jquery-ui', 'vendor/jqueryui/jquery-ui.min.js', array('jquery'));
 
+            $theme->asset()->usePath()->add('bootstrap-css', 'css/bootstrap.min.css');
+            $theme->asset()->usePath()->add('clean-blog-css', 'css/clean-blog.min.css');
+
+            $theme->asset()->container('footer')->usePath()->add('jquery-js', 'js/jquery.js');
+            $theme->asset()->container('footer')->usePath()->add('bootstrap-js', 'js/bootstrap.min.js');
+            $theme->asset()->container('footer')->usePath()->add('clean-blog-js', 'js/clean-blog.min.js');
+
             // Partial composer.
             // $theme->partialComposer('header', function($view)
             // {

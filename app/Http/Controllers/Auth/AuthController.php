@@ -2,7 +2,7 @@
 
 namespace BiboBlog\Http\Controllers\Auth;
 
-use BiboBlog\User;
+use BiboBlog\Eloquent\User;
 use Validator;
 use BiboBlog\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -28,8 +28,9 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
-
+    protected $redirectTo = '/blogs';
+    protected $redirectAfterLogout = '/blogs';
+    protected $username = 'username';  //just to tell the auth method that we are logging in using the username
     /**
      * Create a new authentication controller instance.
      *
@@ -37,6 +38,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('web');
         $this->middleware('guest', ['except' => 'logout']);
     }
 
@@ -49,8 +51,10 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'fname' => 'required|max:255',
+            'lname' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
+            'username' => 'required|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
     }
@@ -64,8 +68,10 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'fname' => $data['fname'],
+            'lname' => $data['lname'],
             'email' => $data['email'],
+            'username' => $data['username'],
             'password' => bcrypt($data['password']),
         ]);
     }

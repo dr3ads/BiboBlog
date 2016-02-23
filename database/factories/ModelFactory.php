@@ -11,10 +11,12 @@
 |
 */
 
-$factory->define(BiboBlog\User::class, function (Faker\Generator $faker) {
+$factory->define(BiboBlog\Eloquent\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'fname' => $faker->firstName,
+        'lname' => $faker->lastName,
         'email' => $faker->email,
+        'username' => $faker->userName,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
     ];

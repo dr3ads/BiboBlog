@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => BiboBlog\User::class,
+            'model' => BiboBlog\Eloquent\User::class,
         ],
 
         // 'users' => [

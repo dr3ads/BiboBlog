@@ -160,6 +160,8 @@ return [
          * Vendor Providers
          */
         Teepluss\Theme\ThemeServiceProvider::class,
+        Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
 
     ],
 
@@ -211,7 +213,6 @@ return [
          * Vendor Aliases
          */
         'Theme' => Teepluss\Theme\Facades\Theme::class,
-
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
     ],
-
 ];
